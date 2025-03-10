@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1uuk46qeieau"]
+
+[ext_resource type="Texture2D" uid="uid://cm7pxef41ll7m" path="res://Asset/Tiny Swords (Update 010)/UI/Banners/Carved_9Slides.png" id="1_bp8p4"]
+[ext_resource type="FontFile" uid="uid://hxgwg1shc105" path="res://Asset/Kurland_Font_0_40/TrueType (.ttf)/Kurland-Regular.ttf" id="1_lj42j"]
+[ext_resource type="Texture2D" uid="uid://3nqagqjijth8" path="res://Asset/Tiny Swords (Update 010)/UI/Pointers/02.png" id="2_cqmde"]
+
+[node name="TextureButton" type="TextureButton"]
+custom_minimum_size = Vector2(162, 66)
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_top = -33.0
+offset_right = 81.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bp8p4")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 37
+patch_margin_top = 28
+patch_margin_right = 27
+patch_margin_bottom = 38
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 162.0
+offset_bottom = 66.0
+texture = ExtResource("2_cqmde")
+patch_margin_left = 25
+patch_margin_top = 28
+patch_margin_right = 25
+patch_margin_bottom = 28
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(162, 66)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_top = -33.0
+offset_right = 81.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer"]
+custom_minimum_size = Vector2(162, 40)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_lj42j")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]SkillName[/center]"

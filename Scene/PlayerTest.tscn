@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cr3bdeu1fjrff"]
+
+[ext_resource type="Script" path="res://Scene/playeranimation.gd" id="1_m14xf"]
+[ext_resource type="SpriteFrames" uid="uid://cu6rfmn2vki7w" path="res://Asset/SpriteFrames/BlueKnight.tres" id="1_wuwns"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifccg"]
+
+[node name="PlayerTest" type="CharacterBody2D"]
+script = ExtResource("1_m14xf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ifccg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_wuwns")
+animation = &"idle"
+frame_progress = 0.326931

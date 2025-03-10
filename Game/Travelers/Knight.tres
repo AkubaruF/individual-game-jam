@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="TravelerResource" load_steps=3 format=3 uid="uid://cs6jjmt81kpxq"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/TravelerResource.gd" id="1_ptu7y"]
+[ext_resource type="SpriteFrames" uid="uid://cu6rfmn2vki7w" path="res://Asset/SpriteFrames/BlueKnight.tres" id="2_f30dt"]
+
+[resource]
+script = ExtResource("1_ptu7y")
+sprite = ExtResource("2_f30dt")
+name = ""
+description = ""
+health = 0
+attack = 0
+magicattack = 0
+defense = 0
+magicdefense = 0
+speed = 0

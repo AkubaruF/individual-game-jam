@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6epvps7m132n"]
+
+[ext_resource type="Texture2D" uid="uid://dhk1o3gv2tpto" path="res://Asset/Tiny Swords (Update 010)/UI/Ribbons/Ribbon_Red_Connection_Right.png" id="1_vstpn"]
+
+[node name="EnemyBanner" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -36.0
+offset_right = 72.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_vstpn")
+region_rect = Rect2(2, 1, 62, 50)
+patch_margin_left = 10
+patch_margin_top = 33
+patch_margin_right = 37
+patch_margin_bottom = 33
