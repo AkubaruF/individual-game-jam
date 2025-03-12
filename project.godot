@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="Individual Game Jam"
-run/main_scene="res://Scene/Main.tscn"
+run/main_scene="res://Scene/Level.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Asset/Tiny Swords (Update 010)/Deco/16.png"
 
 [display]
 

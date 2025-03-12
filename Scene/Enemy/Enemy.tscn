@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvxpo22xia82c"]
+
+[ext_resource type="Script" path="res://Scene/Enemy/enemy.gd" id="1_nc0lg"]
+[ext_resource type="PackedScene" uid="uid://c3u8biyx884hs" path="res://Scene/Game/StatUI.tscn" id="2_8mt5b"]
+
+[node name="Enemy" type="AnimatedSprite2D"]
+script = ExtResource("1_nc0lg")
+
+[node name="StatUI" parent="." instance=ExtResource("2_8mt5b")]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 180.0
+offset_bottom = 40.0
+scale = Vector2(-1, 1)

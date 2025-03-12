@@ -1,0 +1,53 @@
+[gd_scene load_steps=11 format=3 uid="uid://5e6vixh8eihk"]
+
+[ext_resource type="Texture2D" uid="uid://c0xvhofa4dlhv" path="res://Asset/Mappp.png" id="1_y0aoh"]
+[ext_resource type="Script" path="res://Scripts/Mechanics/FanUnit.gd" id="4_jufrx"]
+[ext_resource type="PackedScene" uid="uid://crfiu6t510qdr" path="res://Scene/Game/HUD.tscn" id="4_maqx8"]
+[ext_resource type="PackedScene" uid="uid://ddr6epx2iwjiu" path="res://Scene/Player/Player.tscn" id="4_xlxv0"]
+[ext_resource type="Resource" uid="uid://cuipvg4cfov2t" path="res://Game/Enemy/Goblin.tres" id="5_0ql8p"]
+[ext_resource type="PackedScene" uid="uid://qv36gy6gi1mx" path="res://Scene/Game/Timeline.tscn" id="5_1gyoe"]
+[ext_resource type="Resource" uid="uid://7gmgn8qxbsir" path="res://Game/Travelers/Knight.tres" id="5_dwj5f"]
+[ext_resource type="PackedScene" uid="uid://dvxpo22xia82c" path="res://Scene/Enemy/Enemy.tscn" id="5_h57vd"]
+[ext_resource type="PackedScene" uid="uid://b6epvps7m132n" path="res://Scene/Enemy/EnemyBanner.tscn" id="6_ekupp"]
+[ext_resource type="PackedScene" uid="uid://dhp8aknk7foik" path="res://Scene/Player/PlayerBanner.tscn" id="7_ciodn"]
+
+[node name="Level" type="Node"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(384, 288)
+texture = ExtResource("1_y0aoh")
+
+[node name="Units" type="Node2D" parent="."]
+
+[node name="PlayerTeam" type="Node2D" parent="Units"]
+position = Vector2(256, 288)
+
+[node name="Player" parent="Units/PlayerTeam" instance=ExtResource("4_xlxv0")]
+characterStat = ExtResource("5_dwj5f")
+
+[node name="EnemyTeam" type="Node2D" parent="Units"]
+position = Vector2(512, 288)
+script = ExtResource("4_jufrx")
+
+[node name="Enemy" parent="Units/EnemyTeam" instance=ExtResource("5_h57vd")]
+statsResource = ExtResource("5_0ql8p")
+
+[node name="HUD" parent="." instance=ExtResource("4_maqx8")]
+offset_top = 202.0
+offset_bottom = 202.0
+
+[node name="Timeline" parent="." instance=ExtResource("5_1gyoe")]
+offset_top = -240.0
+offset_bottom = -240.0
+
+[node name="EnemyBanner" parent="." instance=ExtResource("6_ekupp")]
+offset_left = 312.0
+offset_top = -233.0
+offset_right = 312.0
+offset_bottom = -233.0
+
+[node name="PlayerBanner" parent="." instance=ExtResource("7_ciodn")]
+offset_left = -312.0
+offset_top = -233.0
+offset_right = -312.0
+offset_bottom = -233.0

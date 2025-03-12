@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Arsenal" load_steps=5 format=3 uid="uid://dp2y0q5hr1xyq"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/SkillResource.gd" id="1_mp08h"]
+[ext_resource type="Resource" uid="uid://msrc3c0st6u5" path="res://Game/Skills/Barrier.tres" id="2_1aw2m"]
+[ext_resource type="Script" path="res://Scripts/Resources/arsenal.gd" id="2_sgcng"]
+[ext_resource type="Resource" uid="uid://dofgi3wnxci7d" path="res://Game/Skills/Tackle.tres" id="3_dxjik"]
+
+[resource]
+script = ExtResource("2_sgcng")
+skills = Array[ExtResource("1_mp08h")]([ExtResource("3_dxjik"), ExtResource("2_1aw2m"), ExtResource("3_dxjik"), null])
+items = Array[ExtResource("1_mp08h")]([ExtResource("2_1aw2m"), ExtResource("3_dxjik"), null, null])

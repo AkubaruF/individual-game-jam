@@ -1,0 +1,150 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3u8biyx884hs"]
+
+[ext_resource type="Script" path="res://Scripts/Mechanics/stat_ui.gd" id="1_jegiu"]
+[ext_resource type="Texture2D" uid="uid://kupkvngvw81v" path="res://Asset/Tiny Swords (Update 010)/UI/Buttons/Button_Disable_9Slides.png" id="1_o6crp"]
+
+[node name="StatUI" type="Control"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -20.0
+offset_right = 90.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_jegiu")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(190, 190)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -90.0
+offset_right = 95.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_o6crp")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 45
+patch_margin_top = 47
+patch_margin_right = 52
+patch_margin_bottom = 59
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -75.0
+offset_right = 71.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "HP"
+
+[node name="hpvalue" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "255 / 255"
+
+[node name="hpbar" type="ProgressBar" parent="VBoxContainer"]
+layout_mode = 2
+max_value = 255.0
+value = 255.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="RichTextLabel" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=chocolate]Attack"
+
+[node name="attackvalue" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "255"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="RichTextLabel" parent="VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=dark_orchid]Magic Attack"
+
+[node name="mattackvalue" type="Label" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "255"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="RichTextLabel" parent="VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=brown]Defense"
+
+[node name="defensevalue" type="Label" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "255"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="RichTextLabel" parent="VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=dark_magenta]Magic Defense"
+
+[node name="mdefensevalue" type="Label" parent="VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "255"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="RichTextLabel" parent="VBoxContainer/HBoxContainer6"]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=sky_blue]Speed"
+
+[node name="speedvalue" type="Label" parent="VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+text = "255 "

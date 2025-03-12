@@ -1,13 +1,13 @@
 extends Node
 class_name TravelerClass
 
-var TravelerResource: TravelerResource
+var StatsResource: StatsResource
 var Level: int
 var CurrentHealth : int
 var LearnedSkills: Array[SkillClass]
 
-func _init(pTravelerResouce: TravelerResource, plevel: int) -> void:
-	TravelerResource = pTravelerResouce
+func _init(pTravelerResouce: StatsResource, plevel: int) -> void:
+	StatsResource = pTravelerResouce
 	CurrentHealth = pTravelerResouce.health
 	Level = plevel
 	LearnedSkills = []

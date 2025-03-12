@@ -1,15 +1,16 @@
 extends Resource
-class_name TravelerResource
+class_name StatsResource
+
+signal stats_changed
 
 @export_category("Visuals")
 @export var sprite: SpriteFrames
 
 @export_category("Basic Info")
 @export var name: String
-@export var description: String
 
 @export_category("Stats")
-@export var health: int
+@export var maxhealth: int
 @export var attack: int
 @export var magicattack: int
 @export var defense: int
@@ -18,13 +19,22 @@ class_name TravelerResource
 	set(value):
 		agility = value
 		speed = 200.0 / (log(agility) + 2) - 25
+		stats_changed.emit() 
 		queue_reset()
 
 var agility: float
 var queue : Array[float]
 var agility_modifier = 1
-var node
- 
+var health: int: set = set_health
+
+func set_health(value: int) -> void:
+	health = clampi(value,0,maxhealth)
+	stats_changed.emit() 
+
+func health_change(value: int) -> void:
+	self.health += value
+	stats_changed
+
 func queue_reset():
 	queue.clear()
 	for i in range(4):

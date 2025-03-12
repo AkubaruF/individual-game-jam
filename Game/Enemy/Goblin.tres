@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="StatsResource" load_steps=3 format=3 uid="uid://cuipvg4cfov2t"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/StatsResource.gd" id="1_mevf3"]
+[ext_resource type="SpriteFrames" uid="uid://vnsucd6uqrs6" path="res://Asset/SpriteFrames/RedTorchGoblin.tres" id="2_0a0bn"]
+
+[resource]
+script = ExtResource("1_mevf3")
+sprite = ExtResource("2_0a0bn")
+name = "Red Goblin"
+maxhealth = 35
+attack = 55
+magicattack = 40
+defense = 50
+magicdefense = 50
+speed = 90
