@@ -59,3 +59,8 @@ func set_status(status_type : String):
  
 	for i in range(3):
 		queue.append(queue[-1] + agility * agility_modifier)
+
+func create_instance() -> Resource:
+	var instance: StatsResource = self.duplicate()
+	instance.health = maxhealth
+	return instance

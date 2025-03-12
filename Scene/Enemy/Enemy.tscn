@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvxpo22xia82c"]
+[gd_scene load_steps=4 format=3 uid="uid://dvxpo22xia82c"]
 
 [ext_resource type="Script" path="res://Scene/Enemy/enemy.gd" id="1_nc0lg"]
 [ext_resource type="PackedScene" uid="uid://c3u8biyx884hs" path="res://Scene/Game/StatUI.tscn" id="2_8mt5b"]
+[ext_resource type="PackedScene" uid="uid://b6epvps7m132n" path="res://Scene/Enemy/EnemyBanner.tscn" id="3_mwk1i"]
 
 [node name="Enemy" type="AnimatedSprite2D"]
 script = ExtResource("1_nc0lg")
@@ -11,4 +12,7 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 180.0
 offset_bottom = 40.0
+scale = Vector2(-1, 1)
+
+[node name="EnemyBanner" parent="." instance=ExtResource("3_mwk1i")]
 scale = Vector2(-1, 1)

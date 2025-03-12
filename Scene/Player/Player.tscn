@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddr6epx2iwjiu"]
+[gd_scene load_steps=4 format=3 uid="uid://ddr6epx2iwjiu"]
 
 [ext_resource type="Script" path="res://Scene/Player/player.gd" id="1_1q811"]
 [ext_resource type="PackedScene" uid="uid://c3u8biyx884hs" path="res://Scene/Game/StatUI.tscn" id="2_8g0s4"]
+[ext_resource type="PackedScene" uid="uid://dhp8aknk7foik" path="res://Scene/Player/PlayerBanner.tscn" id="3_d76nu"]
 
 [node name="Player" type="AnimatedSprite2D"]
 script = ExtResource("1_1q811")
@@ -11,3 +12,5 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 180.0
 offset_bottom = 40.0
+
+[node name="PlayerBanner" parent="." instance=ExtResource("3_d76nu")]
