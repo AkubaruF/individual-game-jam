@@ -1,3 +1,4 @@
+class_name Enemy
 extends AnimatedSprite2D
 
 @export var statsResource: StatsResource: set = set_enemy_stats
@@ -32,6 +33,6 @@ func update_stats() -> void:
 func take_damage(damage: int) -> void:
 	if statsResource.health <= 0:
 		return
-	statsResource.health_change(damage * -1)
+	statsResource.health_change(damage)
 	if statsResource.health <= 0:
 		queue_free()

@@ -1,3 +1,4 @@
+class_name Player
 extends AnimatedSprite2D
 
 @export var characterStat: CharacterStat: set = set_character_stats
@@ -32,6 +33,6 @@ func update_stats() -> void:
 func take_damage(damage: int) -> void:
 	if characterStat.health <= 0:
 		return
-	characterStat.health_change(damage * -1)
+	characterStat.health_change(damage)
 	if characterStat.health <= 0:
 		queue_free()

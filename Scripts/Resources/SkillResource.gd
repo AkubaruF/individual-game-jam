@@ -10,6 +10,11 @@ enum Target {SELF, ENEMY, EVERYONE}
 @export var target: Target
 @export var name: String
 @export var description: String
+@export var uses: int
 
-func is_single_targeted() -> bool:
-	return target == Target.ENEMY
+func play(targets: Array[Node], stat: StatsResource) -> void:
+	Events.skill_played.emit(self)
+	apply_effects(targets)
+
+func apply_effects(target: Array[Node]) -> void:
+	pass

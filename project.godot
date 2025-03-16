@@ -15,11 +15,16 @@ run/main_scene="res://Scene/Level.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://Asset/Tiny Swords (Update 010)/Deco/16.png"
 
+[autoload]
+
+Events="*res://Scripts/Mechanics/events.gd"
+
 [display]
 
 window/size/viewport_width=768
 window/size/viewport_height=576
-window/size/resizable=false
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 
 [gui]
 
