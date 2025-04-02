@@ -21,8 +21,8 @@ func update_enemy() -> void:
 	
 	sprite_frames = statsResource.sprite
 	play("idle")
-	StatUI.set_position(Vector2(-75, -125))
-	BannerStatUI.set_position(Vector2(-183, -233))
+	StatUI.set_position(Vector2(75, -125))
+	BannerStatUI.set_position(Vector2(183, -233))
 	
 	update_stats()
 	

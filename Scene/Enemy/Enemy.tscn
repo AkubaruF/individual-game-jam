@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b6epvps7m132n" path="res://Scene/Enemy/EnemyBanner.tscn" id="3_mwk1i"]
 
 [node name="Enemy" type="AnimatedSprite2D"]
+flip_h = true
 script = ExtResource("1_nc0lg")
 
 [node name="StatUI" parent="." instance=ExtResource("2_8mt5b")]
@@ -12,7 +13,5 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 180.0
 offset_bottom = 40.0
-scale = Vector2(-1, 1)
 
 [node name="EnemyBanner" parent="." instance=ExtResource("3_mwk1i")]
-scale = Vector2(-1, 1)

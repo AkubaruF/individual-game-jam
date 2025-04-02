@@ -5,6 +5,7 @@ signal stats_changed
 
 @export_category("Visuals")
 @export var sprite: SpriteFrames
+@export var icon: Texture2D
 
 @export_category("Basic Info")
 @export var name: String
@@ -19,7 +20,7 @@ signal stats_changed
 	set(value):
 		agility = value
 		speed = 200.0 / (log(agility) + 2) - 25
-		stats_changed.emit() 
+		stats_changed.emit()
 		queue_reset()
 
 var agility: float
@@ -29,11 +30,11 @@ var health: int: set = set_health
 
 func set_health(value: int) -> void:
 	health = clampi(value,0,maxhealth)
-	stats_changed.emit() 
+	stats_changed.emit()
 
 func health_change(value: int) -> void:
 	self.health += value
-	stats_changed
+	stats_changed.emit()
 
 func queue_reset():
 	queue.clear()

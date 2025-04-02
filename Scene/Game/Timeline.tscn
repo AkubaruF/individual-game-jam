@@ -29,3 +29,95 @@ texture = ExtResource("1_e52w7")
 region_rect = Rect2(0, 0, 192, 64)
 patch_margin_left = 68
 patch_margin_right = 66
+
+[node name="TimelineContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -38.0
+offset_right = 25.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TimelineSlot" type="Panel" parent="TimelineContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="TimelineContainer/TimelineSlot"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TimelineSlot2" type="Panel" parent="TimelineContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="TimelineContainer/TimelineSlot2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TimelineSlot3" type="Panel" parent="TimelineContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="TimelineContainer/TimelineSlot3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TimelineSlot4" type="Panel" parent="TimelineContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="TimelineContainer/TimelineSlot4"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TimelineSlot5" type="Panel" parent="TimelineContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="TimelineContainer/TimelineSlot5"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TimelineSlot6" type="Panel" parent="TimelineContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="TimelineContainer/TimelineSlot6"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+stretch_mode = 4

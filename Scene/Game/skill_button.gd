@@ -18,6 +18,7 @@ func _on_pressed() -> void:
 		targets = [level.find_child("EnemyTeam", true, false).get_child(0)]
 	elif skill.target == SkillResource.Target.EVERYONE:
 		targets = [level.find_child("PlayerTeam", true, false).get_child(0),level.find_child("EnemyTeam", true, false).get_child(0)]
+	print(targets)
 	play()
 
 func play() -> void:

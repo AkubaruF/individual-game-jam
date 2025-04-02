@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="CharacterStat" load_steps=4 format=3 uid="uid://7gmgn8qxbsir"]
+[gd_resource type="Resource" script_class="CharacterStat" load_steps=5 format=3 uid="uid://7gmgn8qxbsir"]
 
+[ext_resource type="Texture2D" uid="uid://c62cdv13k317c" path="res://Asset/Tiny Swords (Update 010)/Deco/17.png" id="1_3xh7s"]
 [ext_resource type="Script" path="res://Scripts/Resources/CharacterStats.gd" id="1_qlxjc"]
 [ext_resource type="SpriteFrames" uid="uid://cu6rfmn2vki7w" path="res://Asset/SpriteFrames/BlueKnight.tres" id="2_f30dt"]
 [ext_resource type="Resource" uid="uid://dp2y0q5hr1xyq" path="res://Game/Travelers/KnightArsenal.tres" id="3_3tdfi"]
@@ -8,6 +9,7 @@
 script = ExtResource("1_qlxjc")
 starting_arsenal = ExtResource("3_3tdfi")
 sprite = ExtResource("2_f30dt")
+icon = ExtResource("1_3xh7s")
 name = "Blue Knight"
 maxhealth = 55
 attack = 90

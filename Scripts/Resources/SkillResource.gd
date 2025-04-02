@@ -15,6 +15,8 @@ enum Target {SELF, ENEMY, EVERYONE}
 func play(targets: Array[Node], stat: StatsResource) -> void:
 	Events.skill_played.emit(self)
 	apply_effects(targets)
+	Events.next_attack.emit()
+
 
 func apply_effects(target: Array[Node]) -> void:
 	pass
