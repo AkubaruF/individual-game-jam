@@ -19,9 +19,7 @@ func _ready():
  
 	sort_and_display()
 	Events.next_attack.connect(next_attack)
- 
-	next_attack()
- 
+  
 func sort_combined_queue():
 	var player_array = []
 	for player in players:
@@ -58,6 +56,7 @@ func sort_and_display():
 		await level.find_child("Enemy").animation_finished
 		level.find_child("Enemy").play("idle")
 		level.find_child("HUD").show()
+		level.find_child("HUD").focus_first_button()
 		next_attack()
  
 func pop_out():

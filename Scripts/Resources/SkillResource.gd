@@ -17,6 +17,5 @@ func play(targets: Array[Node], stat: StatsResource) -> void:
 	apply_effects(targets)
 	Events.next_attack.emit()
 
-
 func apply_effects(target: Array[Node]) -> void:
 	pass

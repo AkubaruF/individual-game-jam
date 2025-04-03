@@ -1,12 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://crfiu6t510qdr"]
+[gd_scene load_steps=4 format=3 uid="uid://crfiu6t510qdr"]
 
 [ext_resource type="Script" path="res://Scene/Game/hud.gd" id="1_hap1o"]
 [ext_resource type="Texture2D" uid="uid://daj1q1eav1xtl" path="res://Asset/Tiny Swords (Update 010)/UI/Banners/Banner_Horizontal.png" id="1_yanir"]
 [ext_resource type="PackedScene" uid="uid://c1uuk46qeieau" path="res://Scene/Game/SkillButton.tscn" id="2_0is4u"]
-[ext_resource type="Resource" uid="uid://msrc3c0st6u5" path="res://Game/Skills/Barrier.tres" id="4_21qcr"]
-[ext_resource type="Resource" uid="uid://7gmgn8qxbsir" path="res://Game/Travelers/Knight.tres" id="5_fdvrc"]
-[ext_resource type="Resource" uid="uid://dofgi3wnxci7d" path="res://Game/Skills/Tackle.tres" id="5_rklc1"]
-[ext_resource type="Resource" uid="uid://d20wdsdxlim6k" path="res://Game/Skills/Explosion.tres" id="6_vtl5b"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -18,6 +14,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hap1o")
+button = ExtResource("2_0is4u")
 
 [node name="SkillHUD" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -55,48 +52,12 @@ grow_horizontal = 2
 custom_minimum_size = Vector2(162, 132)
 layout_mode = 2
 size_flags_vertical = 4
-alignment = 1
-
-[node name="TextureButton" parent="SkillHUD/HBoxContainer/VBoxContainer" instance=ExtResource("2_0is4u")]
-layout_mode = 2
-focus_neighbor_left = NodePath("../../../../ItemHUD/HBoxContainer/VBoxContainer/TextureButton")
-focus_neighbor_right = NodePath("../../VBoxContainer2/TextureButton")
-focus_neighbor_bottom = NodePath("../TextureButton2")
-skill = ExtResource("4_21qcr")
-stats = ExtResource("5_fdvrc")
-
-[node name="TextureButton2" parent="SkillHUD/HBoxContainer/VBoxContainer" instance=ExtResource("2_0is4u")]
-layout_mode = 2
-focus_neighbor_left = NodePath("../../VBoxContainer2/TextureButton2")
-focus_neighbor_top = NodePath("../TextureButton")
-focus_neighbor_right = NodePath("../../VBoxContainer2/TextureButton2")
-focus_neighbor_bottom = NodePath("../TextureButton")
-skill = ExtResource("5_rklc1")
-stats = ExtResource("5_fdvrc")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="SkillHUD/HBoxContainer"]
 custom_minimum_size = Vector2(162, 132)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-
-[node name="TextureButton" parent="SkillHUD/HBoxContainer/VBoxContainer2" instance=ExtResource("2_0is4u")]
-layout_mode = 2
-focus_neighbor_left = NodePath("../../VBoxContainer/TextureButton")
-focus_neighbor_top = NodePath("../TextureButton2")
-focus_neighbor_right = NodePath("../../../../ItemHUD/HBoxContainer/VBoxContainer/TextureButton")
-focus_neighbor_bottom = NodePath("../TextureButton2")
-skill = ExtResource("5_rklc1")
-stats = ExtResource("5_fdvrc")
-
-[node name="TextureButton2" parent="SkillHUD/HBoxContainer/VBoxContainer2" instance=ExtResource("2_0is4u")]
-layout_mode = 2
-focus_neighbor_left = NodePath("../../VBoxContainer/TextureButton2")
-focus_neighbor_top = NodePath("../TextureButton")
-focus_neighbor_right = NodePath("../../VBoxContainer/TextureButton2")
-focus_neighbor_bottom = NodePath("../TextureButton")
-skill = ExtResource("4_21qcr")
-stats = ExtResource("5_fdvrc")
 
 [node name="ItemHUD" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -132,13 +93,6 @@ custom_minimum_size = Vector2(162, 132)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-
-[node name="TextureButton" parent="ItemHUD/HBoxContainer/VBoxContainer" instance=ExtResource("2_0is4u")]
-layout_mode = 2
-focus_neighbor_left = NodePath("../../../../SkillHUD/HBoxContainer/VBoxContainer2/TextureButton")
-focus_neighbor_right = NodePath("../../../../SkillHUD/HBoxContainer/VBoxContainer/TextureButton")
-skill = ExtResource("6_vtl5b")
-stats = ExtResource("5_fdvrc")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="ItemHUD/HBoxContainer"]
 custom_minimum_size = Vector2(162, 132)

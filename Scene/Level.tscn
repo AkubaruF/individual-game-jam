@@ -16,8 +16,6 @@ player_group = NodePath("Units/PlayerTeam")
 enemy_group = NodePath("Units/EnemyTeam")
 timeline = NodePath("Timeline")
 
-[node name="CanvasLayer" parent="." instance=ExtResource("2_4w0dq")]
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(384, 288)
 texture = ExtResource("1_y0aoh")
@@ -43,3 +41,5 @@ offset_bottom = 202.0
 [node name="Timeline" parent="." instance=ExtResource("5_1gyoe")]
 offset_top = -240.0
 offset_bottom = -240.0
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_4w0dq")]
