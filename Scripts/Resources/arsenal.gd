@@ -1,11 +1,18 @@
 class_name Arsenal
 extends Resource
 
-signal arsenal_changed(amount)
-
 @export var skills: Array[SkillResource] = []
 @export var items: Array[SkillResource] = []
+const MAX_ARRAY = 4
 
-func add(new: SkillResource):
+func add_skills(new: SkillResource):
 	skills.append(new)
-	arsenal_changed.emit(skills.size())
+	if skills.size() > MAX_ARRAY:
+		skills.remove_at(0)
+	Events.arsenal_changed.emit()
+
+func add_items(new: SkillResource):
+	items.append(new)
+	if items.size() > MAX_ARRAY:
+		items.remove_at(0)
+	Events.arsenal_changed.emit()

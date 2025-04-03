@@ -3,13 +3,11 @@ extends Node
 @export var player_group : Node2D
 @export var enemy_group : Node2D
 @export var timeline : Control
- 
-@export var enemy_button : PackedScene
- 
+  
 var sorted_array = []
 var players : Array[StatsResource]
 var enemies : Array[StatsResource]
- 
+
 func _ready():
 	for player in player_group.get_children():
 		players.append(player.characterStat)
@@ -48,7 +46,7 @@ func sort_and_display():
 	sort_combined_queue()
 	update_timeline()
 	if sorted_array[0]["character"] in players:
-		print("player turn")
+		pass
 	else:
 		var level = get_tree().current_scene
 		level.find_child("HUD").hide()
