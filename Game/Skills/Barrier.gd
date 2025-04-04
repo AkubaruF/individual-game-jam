@@ -1,6 +1,6 @@
 extends SkillResource
 
-func apply_effects(target: Array[Node]) -> void:
+func apply_effects(target: Array[Node], stat: StatsResource) -> void:
 	var block_effect := HealEffect.new()
-	block_effect.amount = 6
-	block_effect.effect(target)
+	block_effect.amount = 3
+	block_effect.effect(target, SkillResource.Damage.MAGIC)

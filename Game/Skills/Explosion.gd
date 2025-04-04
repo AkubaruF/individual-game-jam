@@ -1,6 +1,6 @@
 extends SkillResource
 
-func apply_effects(target: Array[Node]) -> void:
+func apply_effects(target: Array[Node], stat: StatsResource) -> void:
 	var attack_effect := AttackEffect.new()
-	attack_effect.amount = 15
-	attack_effect.effect(target)
+	attack_effect.amount = 80 * stat.magicattack
+	attack_effect.effect(target, SkillResource.Damage.MAGIC)

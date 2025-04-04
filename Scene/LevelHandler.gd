@@ -46,15 +46,15 @@ func sort_and_display():
 	sort_combined_queue()
 	update_timeline()
 	if sorted_array[0]["character"] in players:
-		pass
+		var level = get_tree().current_scene
+		level.find_child("HUD").show()
+		level.find_child("HUD").focus_first_button()
 	else:
 		var level = get_tree().current_scene
 		level.find_child("HUD").hide()
 		level.find_child("Enemy").play("attack1")
 		await level.find_child("Enemy").animation_finished
 		level.find_child("Enemy").play("idle")
-		level.find_child("HUD").show()
-		level.find_child("HUD").focus_first_button()
 		next_attack()
  
 func pop_out():

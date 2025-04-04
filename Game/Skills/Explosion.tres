@@ -7,6 +7,7 @@ script = ExtResource("1_ti24o")
 id = "explosion"
 type = 0
 target = 2
+damage = 1
 name = "Explosion"
 description = "Everyone explodes now"
 uses = 1

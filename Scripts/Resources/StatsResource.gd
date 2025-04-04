@@ -32,7 +32,16 @@ func set_health(value: int) -> void:
 	health = clampi(value,0,maxhealth)
 	stats_changed.emit()
 
-func health_change(value: int) -> void:
+func damage(value: int, type: SkillResource.Damage) -> void:
+	if type == SkillResource.Damage.PHYSICAL:
+		print((value / defense / 50 + 5))
+		self.health -= (value / defense / 50 + 5)
+	if type == SkillResource.Damage.MAGIC:
+		print((value / magicdefense / 50 + 5))
+		self.health -= (value / magicdefense / 50 + 5)
+	stats_changed.emit()
+
+func heal(value: int, type: SkillResource.Damage) -> void:
 	self.health += value
 	stats_changed.emit()
 

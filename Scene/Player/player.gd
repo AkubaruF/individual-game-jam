@@ -30,9 +30,16 @@ func update_stats() -> void:
 	StatUI.update_stats(characterStat)
 	BannerStatUI.update_stats(characterStat)
 
-func take_damage(damage: int) -> void:
+func take_damage(damage: int, type: SkillResource.Damage) -> void:
 	if characterStat.health <= 0:
 		return
-	characterStat.health_change(damage)
+	characterStat.damage(damage, type)
+	if characterStat.health <= 0:
+		queue_free()
+
+func heal_damage(heal: int, type: SkillResource.Damage) -> void:
+	if characterStat.health <= 0:
+		return
+	characterStat.heal(heal, type)
 	if characterStat.health <= 0:
 		queue_free()

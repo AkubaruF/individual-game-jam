@@ -23,7 +23,10 @@ func _on_pressed() -> void:
 func play() -> void:
 	if not skill:
 		return
-	skill.play(targets, stats)
+	var player = level.find_child("PlayerTeam", true, false).get_child(0)
+	if not (player is Player):
+		return
+	skill.play(targets, player.characterStat)
 
 func setup_text():
 	$RichTextLabel.text = "[center]" + skill.name + "[/center]"
