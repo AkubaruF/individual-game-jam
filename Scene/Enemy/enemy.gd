@@ -35,7 +35,12 @@ func take_damage(damage: int, type: SkillResource.Damage) -> void:
 		return
 	statsResource.damage(damage, type)
 	if statsResource.health <= 0:
-		queue_free()
+		visible = false
+		statsResource.health = statsResource.maxhealth
+		statsResource.attack = 50
+		await get_tree().create_timer(2.0).timeout
+		visible = true
+		#queue_free()
 
 func heal_damage(damage: int, type: SkillResource.Damage) -> void:
 	if statsResource.health <= 0:

@@ -1,13 +1,13 @@
 [gd_resource type="Resource" load_steps=2 format=3 uid="uid://msrc3c0st6u5"]
 
-[ext_resource type="Script" path="res://Game/Skills/Barrier.gd" id="1_au7k8"]
+[ext_resource type="Script" path="res://Game/Skills/Heal.gd" id="1_au7k8"]
 
 [resource]
 script = ExtResource("1_au7k8")
-id = "barrier"
+id = "heal"
 type = 1
 target = 0
 damage = 1
-name = "Barrier"
+name = "Heal"
 description = "Add temporary health that stays for 1 turn."
 uses = 5

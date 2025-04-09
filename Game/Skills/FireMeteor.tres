@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://my2qhvtqgull"]
+
+[ext_resource type="Script" path="res://Game/Skills/FireMeteor.gd" id="1_n73ut"]
+
+[resource]
+script = ExtResource("1_n73ut")
+id = "fire_meteor"
+type = 0
+target = 1
+damage = 1
+name = "Fire Meteor"
+description = "lul"
+uses = 0

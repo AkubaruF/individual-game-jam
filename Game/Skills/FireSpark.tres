@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://d1pjfi54sgwi2"]
+
+[ext_resource type="Script" path="res://Game/Skills/FireSpark.gd" id="1_ec3fc"]
+
+[resource]
+script = ExtResource("1_ec3fc")
+id = "fire_spark"
+type = 0
+target = 1
+damage = 1
+name = "Fire Spark"
+description = "lel"
+uses = 0

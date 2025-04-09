@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bjsccv4vju7qb"]
+
+[ext_resource type="Script" path="res://Game/Skills/Lunge.gd" id="1_6y1yp"]
+
+[resource]
+script = ExtResource("1_6y1yp")
+id = "lunge"
+type = 0
+target = 1
+damage = 0
+name = "Lunge"
+description = ""
+uses = 0

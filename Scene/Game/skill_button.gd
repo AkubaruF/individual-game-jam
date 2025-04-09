@@ -26,7 +26,10 @@ func play() -> void:
 	var player = level.find_child("PlayerTeam", true, false).get_child(0)
 	if not (player is Player):
 		return
+	player.play("attack1")
+	await player.animation_finished
 	skill.play(targets, player.characterStat)
+	player.play("idle")
 
 func setup_text():
 	$RichTextLabel.text = "[center]" + skill.name + "[/center]"

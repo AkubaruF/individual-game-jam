@@ -11,15 +11,30 @@ signal stats_changed
 @export var name: String
 
 @export_category("Stats")
-@export var maxhealth: int
-@export var attack: int
-@export var magicattack: int
-@export var defense: int
-@export var magicdefense: int
+@export var maxhealth: int:
+	set(value):
+		maxhealth = value
+		stats_changed.emit()
+@export var attack: int:
+	set(value):
+		attack = value
+		stats_changed.emit()
+@export var magicattack: int:
+	set(value):
+		magicattack = value
+		stats_changed.emit()
+@export var defense: int:
+	set(value):
+		defense = value
+		stats_changed.emit()
+@export var magicdefense: int:
+	set(value):
+		magicdefense = value
+		stats_changed.emit()
 @export var speed: int:
 	set(value):
-		agility = value
-		speed = 200.0 / (log(agility) + 2) - 25
+		speed = value
+		agility = 200.0 / (log(speed) + 2) - 25
 		stats_changed.emit()
 		queue_reset()
 
@@ -34,11 +49,9 @@ func set_health(value: int) -> void:
 
 func damage(value: int, type: SkillResource.Damage) -> void:
 	if type == SkillResource.Damage.PHYSICAL:
-		print((value / defense / 50 + 5))
-		self.health -= (value / defense / 50 + 5)
+		self.health -= (value / defense / 5)
 	if type == SkillResource.Damage.MAGIC:
-		print((value / magicdefense / 50 + 5))
-		self.health -= (value / magicdefense / 50 + 5)
+		self.health -= (value / magicdefense / 5)
 	stats_changed.emit()
 
 func heal(value: int, type: SkillResource.Damage) -> void:

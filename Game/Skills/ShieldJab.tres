@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://d2euiwdci28f7"]
+
+[ext_resource type="Script" path="res://Game/Skills/ShieldJab.gd" id="1_epp0u"]
+
+[resource]
+script = ExtResource("1_epp0u")
+id = "shield_jab"
+type = 0
+target = 1
+damage = 0
+name = "Shield Jab"
+description = "Shield Jab"
+uses = 0
