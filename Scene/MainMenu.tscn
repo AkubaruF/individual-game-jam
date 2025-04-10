@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://c563tk6qiemy2"]
+[gd_scene load_steps=8 format=3 uid="uid://c563tk6qiemy2"]
 
-[ext_resource type="Script" path="res://main_menu.gd" id="1_b6re8"]
+[ext_resource type="Script" path="res://Scene/Game/main_menu.gd" id="1_b6re8"]
+[ext_resource type="Texture2D" uid="uid://6dlsgmo6668b" path="res://Asset/Mappp newest.png" id="2_sc2na"]
+[ext_resource type="SpriteFrames" uid="uid://cu6rfmn2vki7w" path="res://Asset/SpriteFrames/BlueKnight.tres" id="3_dxwev"]
+[ext_resource type="SpriteFrames" uid="uid://vnsucd6uqrs6" path="res://Asset/SpriteFrames/RedTorchGoblin.tres" id="4_be4q5"]
+[ext_resource type="PackedScene" uid="uid://btcdjj2jl56oy" path="res://Scene/Game/Crt Shader.tscn" id="5_m0ieo"]
+[ext_resource type="AudioStream" uid="uid://c12hy7blenx35" path="res://Asset/BGM/jungle-ish-beat-for-video-games-314073.mp3" id="6_ooyp5"]
+[ext_resource type="Script" path="res://Scripts/bgm.gd" id="7_kb6g8"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -10,6 +16,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b6re8")
+
+[node name="MapppNewest" type="Sprite2D" parent="."]
+position = Vector2(384, 288)
+texture = ExtResource("2_sc2na")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -25,7 +35,8 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/CenterContainer"]
 layout_mode = 2
-text = "GAME NAME"
+theme_override_font_sizes/font_size = 50
+text = "Aeternum Adversarium"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 288)
@@ -33,11 +44,32 @@ layout_mode = 2
 
 [node name="PlayButton" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "PLAY"
 
 [node name="ExitButton" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "EXIT"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(288, 238)
+sprite_frames = ExtResource("3_dxwev")
+animation = &"attack1"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(480, 238)
+scale = Vector2(-1, 1)
+sprite_frames = ExtResource("4_be4q5")
+animation = &"attack1"
+
+[node name="CanvasLayer" parent="." instance=ExtResource("5_m0ieo")]
+
+[node name="Jungle-ish-beat-for-video-games-314073" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ooyp5")
+autoplay = true
+parameters/looping = true
+script = ExtResource("7_kb6g8")
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

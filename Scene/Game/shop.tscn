@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://ea25chwsyrfa"]
+
+[ext_resource type="Texture2D" uid="uid://de8qs238qxf51" path="res://Asset/Tiny Swords (Update 010)/UI/Buttons/Button_Disable.png" id="1_e55g4"]
+[ext_resource type="PackedScene" uid="uid://je0lgip8uibl" path="res://Scene/Game/stat_card.tscn" id="2_734oi"]
+[ext_resource type="PackedScene" uid="uid://gqm0rdbaunhq" path="res://Scene/Game/skill_card.tscn" id="2_qc1tx"]
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -144.0
+offset_right = 192.0
+offset_bottom = 161.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_e55g4")
+patch_margin_left = 18
+patch_margin_top = 17
+patch_margin_right = 19
+patch_margin_bottom = 28
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 384.0
+offset_bottom = 302.0
+
+[node name="Stats" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 144)
+layout_mode = 2
+alignment = 1
+
+[node name="StatCard" parent="NinePatchRect/VBoxContainer/Stats" instance=ExtResource("2_734oi")]
+layout_mode = 2
+
+[node name="StatCard2" parent="NinePatchRect/VBoxContainer/Stats" instance=ExtResource("2_734oi")]
+layout_mode = 2
+
+[node name="Skills" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 144)
+layout_mode = 2
+alignment = 1
+
+[node name="SkillCard" parent="NinePatchRect/VBoxContainer/Skills" instance=ExtResource("2_qc1tx")]
+layout_mode = 2
+
+[node name="SkillCard2" parent="NinePatchRect/VBoxContainer/Skills" instance=ExtResource("2_qc1tx")]
+layout_mode = 2

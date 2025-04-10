@@ -35,12 +35,32 @@ func take_damage(damage: int, type: SkillResource.Damage) -> void:
 		return
 	statsResource.damage(damage, type)
 	if statsResource.health <= 0:
-		visible = false
-		statsResource.health = statsResource.maxhealth
-		statsResource.attack = 50
-		await get_tree().create_timer(2.0).timeout
-		visible = true
-		#queue_free()
+		if is_inside_tree():
+			var tree := get_tree()
+			visible = false
+			await tree.create_timer(0.1).timeout
+			visible = true
+			await tree.create_timer(0.1).timeout
+			visible = false
+			await tree.create_timer(0.1).timeout
+			visible = true
+			await tree.create_timer(0.1).timeout
+			visible = false
+			statsResource.randomize_stats_with_bonus()
+			statsResource.health = statsResource.maxhealth
+			await tree.create_timer(0.1).timeout
+			visible = true
+			Events.enemy_died.emit()
+		else:
+			visible = false
+			visible = true
+			visible = false
+			visible = true
+			visible = false
+			statsResource.randomize_stats_with_bonus()
+			statsResource.health = statsResource.maxhealth
+			visible = true
+			Events.enemy_died.emit()
 
 func heal_damage(damage: int, type: SkillResource.Damage) -> void:
 	if statsResource.health <= 0:

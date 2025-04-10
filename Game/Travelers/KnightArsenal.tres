@@ -1,12 +1,15 @@
-[gd_resource type="Resource" script_class="Arsenal" load_steps=6 format=3 uid="uid://dp2y0q5hr1xyq"]
+[gd_resource type="Resource" script_class="Arsenal" load_steps=9 format=3 uid="uid://dp2y0q5hr1xyq"]
 
 [ext_resource type="Script" path="res://Scripts/Resources/SkillResource.gd" id="1_mp08h"]
-[ext_resource type="Resource" uid="uid://msrc3c0st6u5" path="res://Game/Skills/Heal.tres" id="2_1aw2m"]
+[ext_resource type="Resource" uid="uid://biycuf01ucprq" path="res://Game/Skills/Heal.tres" id="2_1aw2m"]
+[ext_resource type="Resource" uid="uid://fjqjiynoat3g" path="res://Game/Skills/Bloodletting.tres" id="2_ors04"]
 [ext_resource type="Resource" uid="uid://d20wdsdxlim6k" path="res://Game/Skills/Explosion.tres" id="2_s5peg"]
 [ext_resource type="Script" path="res://Scripts/Resources/arsenal.gd" id="2_sgcng"]
-[ext_resource type="Resource" uid="uid://dofgi3wnxci7d" path="res://Game/Skills/Tackle.tres" id="3_dxjik"]
+[ext_resource type="Resource" uid="uid://bjsccv4vju7qb" path="res://Game/Skills/Lunge.tres" id="4_r450o"]
+[ext_resource type="Resource" uid="uid://by06q3myy4n6j" path="res://Game/Skills/FireBall.tres" id="5_dpoxs"]
+[ext_resource type="Resource" uid="uid://k72rpr1q1e3n" path="res://Game/Skills/ShieldBash.tres" id="6_2k5ed"]
 
 [resource]
 script = ExtResource("2_sgcng")
-skills = Array[ExtResource("1_mp08h")]([ExtResource("3_dxjik"), ExtResource("2_1aw2m")])
-items = Array[ExtResource("1_mp08h")]([ExtResource("2_s5peg")])
+skills = Array[ExtResource("1_mp08h")]([ExtResource("4_r450o"), ExtResource("5_dpoxs"), ExtResource("6_2k5ed"), ExtResource("2_s5peg")])
+items = Array[ExtResource("1_mp08h")]([ExtResource("2_ors04"), ExtResource("2_1aw2m")])

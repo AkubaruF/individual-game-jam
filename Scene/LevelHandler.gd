@@ -2,10 +2,15 @@ extends Node
  
 @export var player_group : Node2D
 @export var enemy_group : Node2D
+@export var enemy_original : Enemy
 @export var timeline : Control
+@export var audioPlayer: AudioStreamPlayer
+@export var sfx: AudioStreamWAV
 
 var level
+var battles
 var selected_skills
+var tree
 var stats : CharacterStat
 var targets: Array[Node] = []
 
@@ -13,35 +18,32 @@ var sorted_array = []
 var players : Array[StatsResource]
 var enemies : Array[StatsResource]
 
-var enemySkills: Array[SkillResource] = []
+@export var enemySkills: Array[SkillResource]
 
 func _ready():
+	tree = get_tree()
+	battles = 0
 	randomize()
 	level = get_tree().current_scene
-	load_enemy_skills()
-	selected_skills = get_random_enemy_skills()
 	for player in player_group.get_children():
 		players.append(player.characterStat)
  
 	for enemy in enemy_group.get_children():
 		enemies.append(enemy.statsResource)
- 
-	sort_and_display()
 	Events.next_attack.connect(next_attack)
+	Events.enemy_died.connect(start_battle)
+	start_battle()
 
-func load_enemy_skills():
-	var dir := DirAccess.open("res://Game/Skills/")
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if not dir.current_is_dir() and file_name.ends_with(".tres"): # or .res
-				var full_path = "res://Game/Skills/" + file_name
-				var res = ResourceLoader.load(full_path)
-				if res is SkillResource:
-					enemySkills.append(res)
-			file_name = dir.get_next()
-		dir.list_dir_end()
+func start_battle():
+	battles += 1
+	if battles == 5:
+		tree.change_scene_to_file(str("res://Scene/Game/winScreen.tscn"))
+		await tree.process_frame
+		await tree.process_frame
+
+	selected_skills = get_random_enemy_skills()
+
+	sort_and_display()
   
 func sort_combined_queue():
 	var player_array = []
@@ -57,7 +59,7 @@ func sort_combined_queue():
 	sorted_array = player_array
 	sorted_array.append_array(enemy_array)
 	sorted_array.sort_custom(sort_by_time)
- 
+
 func sort_by_time(a,b):
 	return a["time"] < b["time"]
  
@@ -77,19 +79,24 @@ func update_timeline():
 func sort_and_display():
 	sort_combined_queue()
 	update_timeline()
-	if sorted_array[0]["character"] in players:
-		level = get_tree().current_scene
+	level.find_child("HUD").show()
+	if level.find_child("EnemyTeam", true, false).get_child(0).visible == false:
+		return
+	elif sorted_array[0]["character"] in players:
 		level.find_child("HUD").show()
-		level.find_child("HUD").focus_first_button()
-	else:
-		level = get_tree().current_scene
+		toggle_focus(true)
+	elif sorted_array[0]["character"] in enemies:
 		level.find_child("HUD").hide()
 		enemy_play_skill()
+	else:
+		next_attack()
+
+func toggle_focus(condition: bool):
+	if condition:
+		level.find_child("HUD").focus_first_button()
 
 func enemy_play_skill():
-	print(selected_skills)
 	var skill = selected_skills[randi() % selected_skills.size()]
-	print(skill.name)
 	if skill.target == SkillResource.Target.SELF:
 		targets = [level.find_child("EnemyTeam", true, false).get_child(0)]
 	elif skill.target == SkillResource.Target.ENEMY:
@@ -102,10 +109,14 @@ func enemy_play_skill():
 	var enemy = level.find_child("EnemyTeam", true, false).get_child(0)
 	if not (enemy is Enemy):
 		return
-	enemy.play("attack1")
-	await enemy.animation_finished
+	enemy_original.play("attack1")
+	if is_inside_tree():
+		var tree := get_tree()
+		await tree.create_timer(0.5).timeout
+		await tree.process_frame
+		await tree.process_frame
 	skill.play(targets, enemy.statsResource)
-	enemy.play("idle")
+	enemy_original.play("idle")
 
 func get_random_enemy_skills(count: int = 4) -> Array[SkillResource]:
 	if enemySkills.size() == 0:
@@ -120,8 +131,24 @@ func pop_out():
 	sort_and_display()
  
 func next_attack():
+	_play_music_with_random_pitch()
 	pop_out()
 
-func set_status(status_type):
-	sorted_array[0]["character"].set_status(status_type)
-	sort_and_display()
+func set_mouse_input_on_all(node: Control, enabled: bool) -> void:
+	if node is NinePatchRect or node is RichTextLabel:
+		node.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	else:
+		if enabled:
+			node.mouse_filter = Control.MOUSE_FILTER_STOP
+		else:
+			node.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+	for child in node.get_children():
+		if child is Control:
+			set_mouse_input_on_all(child, enabled)
+
+func _play_music_with_random_pitch():
+	var audio := AudioStreamPlayer.new()
+	audioPlayer.stream = sfx
+	audioPlayer.pitch_scale = randf_range(0.85, 1.0)
+	audioPlayer.play()

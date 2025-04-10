@@ -49,9 +49,9 @@ func set_health(value: int) -> void:
 
 func damage(value: int, type: SkillResource.Damage) -> void:
 	if type == SkillResource.Damage.PHYSICAL:
-		self.health -= (value / defense / 5)
+		self.health -= (value / defense / 10)
 	if type == SkillResource.Damage.MAGIC:
-		self.health -= (value / magicdefense / 5)
+		self.health -= (value / magicdefense / 10)
 	stats_changed.emit()
 
 func heal(value: int, type: SkillResource.Damage) -> void:
@@ -87,3 +87,39 @@ func create_instance() -> Resource:
 	var instance: StatsResource = self.duplicate()
 	instance.health = maxhealth
 	return instance
+
+func randomize_stats_with_bonus():
+	var stat_keys = ["maxhealth", "attack", "magicattack", "defense", "magicdefense", "speed"]
+	var original_values = {
+		"maxhealth": maxhealth,
+		"attack": attack,
+		"magicattack": magicattack,
+		"defense": defense,
+		"magicdefense": magicdefense,
+		"speed": speed
+	}
+
+	var total = 0
+	for key in stat_keys:
+		total += original_values[key]
+
+	var increased_total = int(round(total * 1.1))
+	
+	# Give each stat at least 1
+	var new_values = {}
+	for key in stat_keys:
+		new_values[key] = 1
+	increased_total -= stat_keys.size()
+
+	# Randomly assign the rest
+	for i in range(increased_total):
+		var rand_key = stat_keys[randi() % stat_keys.size()]
+		new_values[rand_key] += 1
+
+	# Apply and trigger setters
+	maxhealth = new_values["maxhealth"]
+	attack = new_values["attack"]
+	magicattack = new_values["magicattack"]
+	defense = new_values["defense"]
+	magicdefense = new_values["magicdefense"]
+	speed = new_values["speed"]

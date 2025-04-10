@@ -35,7 +35,10 @@ func take_damage(damage: int, type: SkillResource.Damage) -> void:
 		return
 	characterStat.damage(damage, type)
 	if characterStat.health <= 0:
-		queue_free()
+		var tree := get_tree()
+		tree.change_scene_to_file(str("res://Scene/Game/LoseScreen.tscn"))
+		await tree.process_frame
+		await tree.process_frame
 
 func heal_damage(heal: int, type: SkillResource.Damage) -> void:
 	if characterStat.health <= 0:

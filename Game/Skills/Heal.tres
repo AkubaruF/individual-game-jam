@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://msrc3c0st6u5"]
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://biycuf01ucprq"]
 
 [ext_resource type="Script" path="res://Game/Skills/Heal.gd" id="1_au7k8"]
 
@@ -9,5 +9,5 @@ type = 1
 target = 0
 damage = 1
 name = "Heal"
-description = "Add temporary health that stays for 1 turn."
-uses = 5
+description = "Heal yourself with magic"
+uses = 0

@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://gqm0rdbaunhq"]
+
+[ext_resource type="Texture2D" uid="uid://cm7pxef41ll7m" path="res://Asset/Tiny Swords (Update 010)/UI/Banners/Carved_9Slides.png" id="1_c5p6r"]
+[ext_resource type="Script" path="res://Scene/Game/skill_card.gd" id="1_i18ca"]
+[ext_resource type="Texture2D" uid="uid://dy4rd1akrh05x" path="res://Asset/Tiny Swords (Update 010)/Resources/Resources/G_Idle.png" id="1_uvcdt"]
+[ext_resource type="FontFile" uid="uid://hxgwg1shc105" path="res://Asset/Kurland_Font_0_40/TrueType (.ttf)/Kurland-Regular.ttf" id="2_r0cl6"]
+
+[node name="SkillCard" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_i18ca")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="Background" type="NinePatchRect" parent="CenterContainer"]
+custom_minimum_size = Vector2(162, 0)
+layout_mode = 2
+texture = ExtResource("1_c5p6r")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 37
+patch_margin_top = 28
+patch_margin_right = 27
+patch_margin_bottom = 38
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer"]
+custom_minimum_size = Vector2(162, 40)
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_r0cl6")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]SkillName[/center]"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+texture = ExtResource("1_uvcdt")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "999"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+text = "BUY"
