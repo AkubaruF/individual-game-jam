@@ -22,7 +22,7 @@ var enemies : Array[StatsResource]
 
 func _ready():
 	tree = get_tree()
-	battles = 0
+	Events.enemy_died_count = 0
 	randomize()
 	level = get_tree().current_scene
 	for player in player_group.get_children():
@@ -35,12 +35,6 @@ func _ready():
 	start_battle()
 
 func start_battle():
-	battles += 1
-	if battles == 5:
-		tree.change_scene_to_file(str("res://Scene/Game/winScreen.tscn"))
-		await tree.process_frame
-		await tree.process_frame
-
 	selected_skills = get_random_enemy_skills()
 
 	sort_and_display()
