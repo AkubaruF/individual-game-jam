@@ -12,6 +12,7 @@ signal stat_buy(amount: int, type: String, cost: int)
 
 var gold_run = 6
 var enemy_died_count = 0
+var game_ended = false 
 
 func _ready():
 	enemy_died.connect(_on_enemy_died)
@@ -20,7 +21,13 @@ func _ready():
 func _on_enemy_died():
 	enemy_died_count += 1
 	if enemy_died_count == 4:
+		print("win")
+		game_ended = true
 		get_tree().change_scene_to_file("res://Scene/Game/winScreen.tscn")
 
 func _on_player_died():
+	if game_ended:
+		return
+	print("lost")
+	game_ended = true
 	get_tree().change_scene_to_file("res://Scene/Game/LoseScreen.tscn")

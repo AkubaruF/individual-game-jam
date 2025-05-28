@@ -22,6 +22,7 @@ var enemies : Array[StatsResource]
 
 func _ready():
 	tree = get_tree()
+	Events.game_ended = false
 	Events.enemy_died_count = 0
 	randomize()
 	level = get_tree().current_scene
