@@ -34,6 +34,12 @@ func take_damage(damage: int, type: SkillResource.Damage) -> void:
 	if statsResource.health <= 0:
 		return
 	statsResource.damage(damage, type)
+	
+	$AnimatedSprite2D.visible = true
+	$AnimatedSprite2D.play("damage")
+	#await $AnimatedSprite2D.animation_finished
+	#$AnimatedSprite2D.visible = false
+	
 	if statsResource.health <= 0:
 		if is_inside_tree():
 			var tree := get_tree()
@@ -66,5 +72,11 @@ func heal_damage(damage: int, type: SkillResource.Damage) -> void:
 	if statsResource.health <= 0:
 		return
 	statsResource.heal(damage, type)
+	
+	$AnimatedSprite2D.visible = true
+	$AnimatedSprite2D.play("heal")
+	#await $AnimatedSprite2D.animation_finished
+	#$AnimatedSprite2D.visible = false
+	
 	if statsResource.health <= 0:
 		queue_free()

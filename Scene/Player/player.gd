@@ -34,6 +34,12 @@ func take_damage(damage: int, type: SkillResource.Damage) -> void:
 	if characterStat.health <= 0:
 		return
 	characterStat.damage(damage, type)
+	
+	$AnimatedSprite2D.visible = true
+	$AnimatedSprite2D.play("damage")
+	#await $AnimatedSprite2D.animation_finished
+	#$AnimatedSprite2D.visible = false
+	
 	if characterStat.health <= 0:
 		Events.player_died.emit()
 
@@ -41,5 +47,11 @@ func heal_damage(heal: int, type: SkillResource.Damage) -> void:
 	if characterStat.health <= 0:
 		return
 	characterStat.heal(heal, type)
+
+	$AnimatedSprite2D.visible = true
+	$AnimatedSprite2D.play("heal")
+	#await $AnimatedSprite2D.animation_finished
+	#$AnimatedSprite2D.visible = false
+
 	if characterStat.health <= 0:
 		queue_free()

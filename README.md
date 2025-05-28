@@ -7,3 +7,5 @@ Assets Used
 - Lose music by Universfield from https://pixabay.com/sound-effects/marimba-lose-250960/
 - Win music by floraphonic from https://pixabay.com/sound-effects/you-win-sequence-2-183949/
 - sfx from https://mixkit.co/free-sound-effects/game/
+- damage vfx from https://pimen.itch.io/battle-vfx-slashes-and-thrusts
+- heal vfx from https://pimen.itch.io/holy-spell-effect
